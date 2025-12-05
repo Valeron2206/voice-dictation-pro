@@ -173,7 +173,7 @@ class GlassmorphismOverlay:
         self.status_field.setEditable_(False)
         self.status_field.setSelectable_(False)
         self.status_field.setTextColor_(NSColor.whiteColor())
-        self.status_field.setFont_(NSFont.systemFontOfSize_weight_(14, 0.5))
+        self.status_field.setFont_(NSFont.boldSystemFontOfSize_(14))
         content_view.addSubview_(self.status_field)
 
         # Text field for displaying recognized text
@@ -565,21 +565,10 @@ def process_audio():
 def confirm_insert():
     global pending_text, state
 
-    if state != AppState.CONFIRMING:
+    if state != AppState.CONFIRMING or not pending_text:
         return
 
-    # Get text from overlay (may have been edited by user)
-    text_to_insert = None
-    if overlay:
-        text_to_insert = overlay.get_current_text()
-
-    # Fallback to pending_text if overlay text unavailable
-    if not text_to_insert:
-        text_to_insert = pending_text
-
-    if not text_to_insert:
-        return
-
+    text_to_insert = pending_text
     pending_text = None
     state = AppState.IDLE
 
