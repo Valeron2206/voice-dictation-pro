@@ -1,0 +1,6 @@
+numpy>=1.24.0
+sounddevice>=0.4.6
+pynput>=1.7.6
+scipy>=1.11.0
+pyobjc>=10.0
+mlx-whisper>=0.1.0
