@@ -173,7 +173,7 @@ class GlassmorphismOverlay:
         self.status_field.setEditable_(False)
         self.status_field.setSelectable_(False)
         self.status_field.setTextColor_(NSColor.whiteColor())
-        self.status_field.setFont_(NSFont.boldSystemFontOfSize_(14))
+        self.status_field.setFont_(NSFont.systemFontOfSize_(14))
         content_view.addSubview_(self.status_field)
 
         # Text field for displaying recognized text
